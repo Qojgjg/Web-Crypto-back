@@ -1,7 +1,5 @@
 package ar.web.crypto.back.controller;
 
-import io.swagger.v3.oas.annotations.media.Schema;
-import org.apache.http.HttpEntity;
 import org.apache.http.HttpHeaders;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -19,11 +17,10 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
-@RestController(value = "Controller de Crypto")
-@RequestMapping(path = "/web/crypto/api/v1", name = "CHOTO")
-public class WebCryptoController {
+@RestController(value = "Controller de Binance")
+@RequestMapping(path="/binance")
+public class BinanceController {
 
     public static String apiKey="683489f8-0141-4598-9270-f0c59c75a2c2";
 
@@ -44,4 +41,5 @@ public class WebCryptoController {
             response.close();
         }
     }
+
 }
