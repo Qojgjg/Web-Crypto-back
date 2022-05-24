@@ -23,7 +23,6 @@ import java.util.List;
 public class BinanceController {
 
     public static String apiKey="683489f8-0141-4598-9270-f0c59c75a2c2";
-
     @GetMapping(name = "Metodo para probar el servicio este levantado", path = "/cryptocurrency")
     public String postCrypto() throws URISyntaxException, IOException {
         List<NameValuePair> parameters = new ArrayList<NameValuePair>();
