@@ -2,7 +2,7 @@ package ar.web.crypto.back;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
+import springfox.documentation.service.Contact;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -17,18 +17,17 @@ public class SwaggerConfig {
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
-            .select()
-            .apis(RequestHandlerSelectors.any())
+            .select().apis(RequestHandlerSelectors.any())
             .paths(PathSelectors.any())
             .build().apiInfo(this.apiInfo());
     }
 
     private ApiInfo apiInfo() {
-        return new ApiInfo("Swagger de REST API",
+        return new ApiInfo("Web Crypto REST API",
             "REST API de Web Crypto.",
-            "1.0.0-SNAPSHOT",
+            "1.0.0",
             "Licencia del API",
-            null,//new Contact(null,null,null,null) ,
+             new Contact("Gonzalo",null,null) ,
             "Licencia del API",
             "http://", Collections.emptyList());
     }

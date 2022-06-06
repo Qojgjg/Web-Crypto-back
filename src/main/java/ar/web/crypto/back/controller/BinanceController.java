@@ -1,5 +1,6 @@
 package ar.web.crypto.back.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.apache.http.HttpHeaders;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -20,6 +21,7 @@ import java.util.List;
 
 @RestController(value = "Controller de Binance")
 @RequestMapping(path="/binance")
+@Tag(name = "Binance", description = "Rest Api consultando a Binance")
 public class BinanceController {
 
     public static String apiKey="683489f8-0141-4598-9270-f0c59c75a2c2";
