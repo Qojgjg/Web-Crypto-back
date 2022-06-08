@@ -9,6 +9,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -19,7 +20,8 @@ import java.util.List;
 @Service
 public class WebCryptoServiceImpl implements WebCryptoService {
 
-    public static String apiKey="683489f8-0141-4598-9270-f0c59c75a2c2";
+    @Value("${coinmarketcap.api.key}")
+    public String apiKey;
 
     @Override
     public String postCrypto() throws IOException, URISyntaxException {
