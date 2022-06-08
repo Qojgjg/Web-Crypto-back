@@ -17,7 +17,8 @@ public class SwaggerConfig {
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
-            .select().apis(RequestHandlerSelectors.any())
+            .select()
+            .apis(RequestHandlerSelectors.any())
             .paths(PathSelectors.any())
             .build().apiInfo(this.apiInfo());
     }
@@ -25,10 +26,8 @@ public class SwaggerConfig {
     private ApiInfo apiInfo() {
         return new ApiInfo("Web Crypto REST API",
             "REST API de Web Crypto.",
-            "1.0.0",
-            "Licencia del API",
-             new Contact("Gonzalo",null,null) ,
-            "Licencia del API",
-            "http://", Collections.emptyList());
+            "1.0.0-SNAPSHOT", "Licencia del API",
+             new Contact("Gonzalo","localhost","no-existe") ,
+            "Licencia del API", "http://localhost:9090/", Collections.emptyList());
     }
 }

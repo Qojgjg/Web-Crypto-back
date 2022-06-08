@@ -1,7 +1,5 @@
-package ar.web.crypto.back.controller;
+package ar.web.crypto.back.service;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import org.apache.http.HttpHeaders;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -11,23 +9,20 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
-@RestController(value = "Controller de Binance")
-@RequestMapping(path="/binance")
-@Tag(name = "Binance", description = "Rest Api consultando a Binance")
-public class BinanceController {
+@Service
+public class WebCryptoServiceImpl implements WebCryptoService {
 
     public static String apiKey="683489f8-0141-4598-9270-f0c59c75a2c2";
-    @GetMapping(name = "Metodo para probar el servicio este levantado", path = "/cryptocurrency")
-    public String postCrypto() throws URISyntaxException, IOException {
+
+    @Override
+    public String postCrypto() throws IOException, URISyntaxException {
         List<NameValuePair> parameters = new ArrayList<NameValuePair>();
         parameters.add(new BasicNameValuePair("convert","USD"));
         URIBuilder query = new URIBuilder("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest");
@@ -43,5 +38,4 @@ public class BinanceController {
             response.close();
         }
     }
-
 }
